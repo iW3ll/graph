@@ -137,7 +137,7 @@ func (g *Graph) isConnected() bool {
     return true
 }
 
-// Determine if the graph is Eulerian
+// Determine if the graph is eulerian
 func (g *Graph) isEulerian() string {
     if !g.isConnected() {
         return "Não é Eureliano: Grafo não está conectado"
@@ -154,17 +154,15 @@ func (g *Graph) isEulerian() string {
     }
     //All vertices have the same degree
     if oddCount == 0 {
-        return "É Eureliano" 
-        
-    /*} else if oddCount == 2 {
-        return "Semi-Eureliano: Exatamente dois vertices tem graus impares"*/
-    // Two or more than two vertices have odd degree
-        } else {
+        return "É Eureliano"   
+    } else if oddCount == 2 {
+       return "Semi-Eureliano: Exatamente dois vertices tem graus impares"
+     //Two or more than two vertices have odd degree
+    } else {
         return "Não é Eureliano"
     }
 }
 
-// Main function
 func main() {
     test := &Graph{}
     for i := 0; i < 4; i++ {
@@ -173,11 +171,11 @@ func main() {
     test.AddEdge(0, 1)
     test.AddEdge(1, 2)
     test.AddEdge(2, 3)
-	test.AddEdge(3, 0)
+    test.AddEdge(3, 0)
     
     test.Print()
 
-    // Check if the graph is Eulerian
+    // Check if the graph is eulerian
     result := test.isEulerian()
     fmt.Println(result)
 }
